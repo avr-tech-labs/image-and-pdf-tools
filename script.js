@@ -407,6 +407,7 @@ window.avrLibrariesReady.then((libraryStatus) => {
       for (let number = 1; number <= pdf.numPages; number++) {
         setProgress(((number - 1) / pdf.numPages) * 90, `Rendering page ${number} of ${pdf.numPages}…`);
         const page = await pdf.getPage(number);
+        const pageViewport = page.getViewport({ scale: 1 });
         const viewport = page.getViewport({ scale });
         const canvas = document.createElement("canvas");
         canvas.width = Math.ceil(viewport.width);
@@ -414,7 +415,7 @@ window.avrLibrariesReady.then((libraryStatus) => {
         const context = canvas.getContext("2d");
         if (grayscale) context.filter = "grayscale(1)";
         await page.render({ canvasContext: context, viewport }).promise;
-        pages.push({ canvas, width: viewport.width, height: viewport.height });
+        pages.push({ canvas, width: viewport.width, height: viewport.height, pageWidth: pageViewport.width, pageHeight: pageViewport.height });
       }
       return pages;
     });
@@ -485,8 +486,8 @@ window.avrLibrariesReady.then((libraryStatus) => {
           setProgress(90 + ((i + 1) / images.length) * 9, `Optimizing at ${Math.round(scales[scaleIndex] * 100)}% resolution · page ${i + 1} of ${images.length}…`);
           const blob = await canvasBlob(images[i].canvas, "image/jpeg", candidateQuality);
           const embedded = await output.embedJpg(await blob.arrayBuffer());
-          const page = output.addPage([images[i].width, images[i].height]);
-          page.drawImage(embedded, { x: 0, y: 0, width: images[i].width, height: images[i].height });
+          const page = output.addPage([images[i].pageWidth, images[i].pageHeight]);
+          page.drawImage(embedded, { x: 0, y: 0, width: images[i].pageWidth, height: images[i].pageHeight });
         }
         const bytes = await output.save();
         const candidate = new Blob([bytes], { type: "application/pdf" });
