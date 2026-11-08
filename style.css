@@ -54,7 +54,6 @@ button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible { outline: 3px solid color-mix(in srgb,var(--brand) 48%,transparent); outline-offset: 2px; }
 ::selection { color: #fff; background: #7669dd; }
 [hidden] { display: none !important; }
-#file-input { display: none !important; }
 
 .site-header { position: sticky; z-index: 20; top: 0; min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 0 clamp(20px,5vw,76px); border-bottom: 1px solid var(--line); background: color-mix(in srgb,var(--surface) 88%,transparent); backdrop-filter: blur(18px); transition: background .25s,border-color .25s; }
 .brand { flex: 0 0 auto; display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; }
@@ -191,6 +190,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .local-chip i { width: 6px; height: 6px; }
 .workspace-body { padding: 14px; }
 .drop-zone { min-height: 116px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; border: 1px dashed var(--line-strong); border-radius: 10px; background: var(--surface-soft); cursor: pointer; outline: 0; transition: border-color .2s,background .2s,box-shadow .2s; }
+.drop-zone input[type="file"] { display: none !important; }
 .drop-zone:hover,.drop-zone.drag-over { border-color: var(--brand); background: color-mix(in srgb,var(--brand-soft) 32%,var(--surface)); box-shadow: inset 0 0 0 2px color-mix(in srgb,var(--brand) 9%,transparent); }
 .drop-zone:focus-visible { box-shadow: 0 0 0 3px color-mix(in srgb,var(--brand) 18%,transparent); }
 .upload-mark { width: 27px; height: 27px; display: grid; place-items: center; margin-bottom: 6px; border-radius: 8px; color: var(--brand); background: var(--brand-soft); font-size: 16px; transition: transform .2s; }
