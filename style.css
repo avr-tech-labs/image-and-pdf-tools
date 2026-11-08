@@ -471,3 +471,20 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   .hero { min-height: 330px; }
   .hero h1 { font-size: 32px; }
 }
+@media (max-width: 760px) {
+  .drop-zone { min-height: 164px; gap: 2px; padding: 18px 14px; text-align: center; }
+  .drop-zone strong { max-width: 100%; font-size: 14px; line-height: 1.4; }
+  .drop-subtitle { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px; font-size: 12px; line-height: 1.5; }
+  .browse-button { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; margin: 2px 3px; padding: 0 16px; border: 1px solid color-mix(in srgb,var(--brand) 28%,var(--line)); border-radius: 10px; color: var(--brand); background: var(--surface); box-shadow: 0 3px 10px color-mix(in srgb,var(--brand) 10%,transparent); font-size: 13px; font-weight: 700; white-space: nowrap; }
+  .drop-zone > small { margin-top: 5px; font-size: 10px; line-height: 1.4; text-align: center; }
+  .workspace-actions { gap: 12px; }
+  .clear-button,.primary-button { min-height: 44px; }
+}
+@media (max-width: 380px) {
+  .drop-zone { padding-right: 10px; padding-left: 10px; }
+  .drop-zone strong { font-size: 13px; }
+  .drop-subtitle { column-gap: 3px; font-size: 11px; }
+  .browse-button { min-height: 44px; padding-right: 13px; padding-left: 13px; font-size: 12px; }
+  .workspace-actions { align-items: stretch; }
+  .primary-button { min-width: 0; flex: 1; }
+}
