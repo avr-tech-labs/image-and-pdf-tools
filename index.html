@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
   <header class="site-header">
@@ -92,7 +92,7 @@
         </div>
         <div class="workspace-body">
           <div class="drop-zone" id="drop-zone" tabindex="0" role="button" aria-label="Select or drop files">
-            <input id="file-input" type="file" hidden>
+            <input id="file-input" type="file" hidden aria-hidden="true" tabindex="-1" style="display: none !important">
             <button type="button" id="browse-button" class="browse-button"><span aria-hidden="true">↑</span> Choose file</button>
             <div class="upload-mark">↑</div><strong id="drop-title">Drop PDF files here</strong>
             <span class="drop-subtitle">Select a file from your device</span>
