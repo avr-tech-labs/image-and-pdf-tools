@@ -195,8 +195,10 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .drop-zone:hover .upload-mark { transform: translateY(-3px); }
 .drop-zone strong { margin-bottom: 4px; color: var(--ink-soft); font-size: 9px; }
 .drop-subtitle { color: var(--muted); font-size: 8px; }
-.browse-button { padding: 0; border: 0; color: var(--brand); background: transparent; font-size: inherit; font-weight: 700; }
-.browse-button:hover { text-decoration: underline; }
+.drop-zone .browse-button { min-height: 40px; min-width: 150px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin: 8px 0 2px; padding: 0 16px; border: 1px solid color-mix(in srgb,var(--brand) 28%,var(--line)); border-radius: 10px; color: var(--button-ink); background: linear-gradient(110deg,var(--button-start),var(--button-end)); box-shadow: 0 5px 14px color-mix(in srgb,var(--brand) 25%,transparent); font-size: 11px; font-weight: 700; transition: transform .2s var(--ease),box-shadow .2s,filter .2s; }
+.drop-zone .browse-button:hover { transform: translateY(-2px); box-shadow: 0 8px 18px color-mix(in srgb,var(--brand) 35%,transparent); filter: brightness(1.04); }
+.drop-zone .browse-button:active { transform: translateY(0); }
+.drop-zone .browse-button:focus-visible { outline: 3px solid color-mix(in srgb,var(--brand) 48%,transparent); outline-offset: 3px; }
 .drop-zone > small { margin-top: 7px; color: var(--muted-soft); font-size: 7px; }
 .file-list { display: grid; gap: 5px; margin-top: 8px; }
 .file-row { min-height: 36px; display: flex; align-items: center; gap: 8px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); animation: rise-in .25s var(--ease) both; }
@@ -475,8 +477,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   .drop-zone { min-height: 164px; gap: 2px; padding: 18px 14px; text-align: center; }
   .drop-zone strong { max-width: 100%; font-size: 14px; line-height: 1.4; }
   .drop-subtitle { display: block; max-width: 100%; font-size: 12px; line-height: 1.5; text-align: center; }
-  .browse-button { min-height: 48px; min-width: min(100%,220px); display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin: 8px 0 2px; padding: 0 20px; border: 1px solid color-mix(in srgb,var(--brand) 28%,var(--line)); border-radius: 12px; color: #fff; background: linear-gradient(110deg,var(--button-start),var(--button-end)); box-shadow: 0 5px 14px color-mix(in srgb,var(--brand) 25%,transparent); font-size: 14px; font-weight: 700; white-space: nowrap; }
-  .browse-button > span { font-size: 18px; line-height: 1; }
+  .drop-zone .browse-button { min-height: 48px; min-width: min(100%,220px); padding: 0 20px; border-radius: 12px; font-size: 14px; white-space: nowrap; }
+  .drop-zone .browse-button > span { font-size: 18px; line-height: 1; }
   .drop-zone > small { margin-top: 5px; font-size: 10px; line-height: 1.4; text-align: center; }
   .workspace-actions { gap: 12px; }
   .clear-button,.primary-button { min-height: 44px; }
@@ -485,7 +487,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   .drop-zone { padding-right: 10px; padding-left: 10px; }
   .drop-zone strong { font-size: 13px; }
   .drop-subtitle { font-size: 11px; }
-  .browse-button { width: 100%; max-width: 220px; min-height: 48px; font-size: 14px; }
+  .drop-zone .browse-button { width: 100%; max-width: 220px; min-height: 48px; font-size: 14px; }
   .workspace-actions { align-items: stretch; }
   .primary-button { min-width: 0; flex: 1; }
 }
