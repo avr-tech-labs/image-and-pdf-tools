@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7fb">
+  <meta name="description" content="61 free PDF and image tools by AVR Tech Labs. Private, powerful document tools that work in your browser.">
+  <title>AVR Tech Labs — Document Studio</title>
+  <script>
+    try {
+      const savedTheme = localStorage.getItem("avr-document-studio-theme");
+      document.documentElement.dataset.theme = savedTheme === "dark" ? "dark" : "light";
+    } catch {
+      document.documentElement.dataset.theme = "light";
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="AVR Tech Labs Document Studio">
+      <span class="brand-mark">AVR<i></i></span>
+      <span class="brand-copy">AVR <b>TECH LABS</b></span>
+    </a>
+    <nav class="main-nav" aria-label="Tool categories">
+      <button class="nav-filter active" data-view="all"><span>◫</span> All tools <b data-tool-count="all">61</b></button>
+      <button class="nav-filter" data-view="pdf"><span>▤</span> PDF <b data-tool-count="pdf">35</b></button>
+      <button class="nav-filter" data-view="image"><span>▧</span> Images <b data-tool-count="image">26</b></button>
+    </nav>
+    <div class="header-actions">
+      <span class="engine-status" id="engine-status" role="status"><i></i><span>Loading tools…</span></span>
+      <span class="privacy-indicator"><i></i> Files stay on your device</span>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+        <span id="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Dark mode</span>
+      </button>
+      <span class="avatar" aria-hidden="true">A</span>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="hero">
+      <div class="hero-grid-pattern" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> AVR TECH LABS <i>·</i> DOCUMENT STUDIO</div>
+        <h1>Your documents,<br><em>beautifully handled.</em></h1>
+        <p>One polished workspace for your PDF and image toolkit. Fast, simple tools that run privately in your browser.</p>
+        <a class="hero-cta" href="#tool-library">Explore the toolkit <span>↓</span></a>
+      </div>
+      <div class="hero-showcase" aria-hidden="true">
+        <div class="showcase-orbit orbit-a"></div><div class="showcase-orbit orbit-b"></div>
+        <div class="showcase-spark spark-a">✳</div><div class="showcase-spark spark-b">✦</div>
+        <div class="showcase-file image-file"><span>JPG</span><i></i><i></i><i></i><b>IMAGE<br>READY</b></div>
+        <div class="showcase-file pdf-file"><span>PDF</span><b>DOCUMENT<br>READY</b><i></i><i></i><i></i></div>
+        <div class="showcase-check">✓</div>
+      </div>
+      <div class="hero-bottom">
+        <div class="hero-stats"><div><b data-tool-count="all">61</b><span>practical tools</span></div><i></i><div><b>100%</b><span>browser-based</span></div><i></i><div><b>0</b><span>uploads required</span></div></div>
+        <div class="hero-trust"><span>⌑</span> Private by design <b>·</b> No account needed</div>
+      </div>
+    </section>
+
+    <div class="popular-row"><span class="popular-label">QUICK START</span><div class="quick-tools" id="quick-tools"></div></div>
+    <div class="recent-row" id="recent-row" hidden><span class="popular-label">RECENTLY USED</span><div class="quick-tools" id="recent-tools"></div></div>
+
+    <div class="workbench-layout">
+      <section class="library" id="tool-library">
+        <div class="library-heading">
+          <div><div class="section-kicker">THE TOOLKIT <span data-tool-count="all">61</span></div><h2>What are we working on?</h2><p>Pick a tool and let’s get it done.</p></div>
+          <label class="search-box"><span>⌕</span><input id="tool-search" type="search" placeholder="Find a tool..." autocomplete="off"><kbd>/</kbd></label>
+        </div>
+        <div class="library-controls">
+          <div class="filter-tabs" role="group" aria-label="Filter tools">
+            <button class="filter-tab active" data-filter="all">Everything <span data-tool-count="all">61</span></button>
+            <button class="filter-tab" data-filter="pdf">PDF <span data-tool-count="pdf">35</span></button>
+            <button class="filter-tab" data-filter="image">Images <span data-tool-count="image">26</span></button>
+            <button class="filter-tab" data-filter="favorites" aria-label="Show favorite tools">★ Saved <span id="favorite-count">0</span></button>
+          </div>
+          <span class="results-count" id="results-count">61 tools</span>
+        </div>
+        <div class="tool-grid" id="tool-grid"></div>
+        <div class="empty-state" id="empty-state" hidden>No tools match that search. Try another keyword.</div>
+      </section>
+
+      <section class="workspace-card" id="workspace" aria-live="polite">
+        <div class="workspace-head">
+          <div class="active-tool-icon tone-purple" id="workspace-icon">▤</div>
+          <div class="workspace-title"><div class="tool-category" id="workspace-category">PDF TOOL</div><h2 id="workspace-title">Merge PDF</h2><p id="workspace-hint">Combine documents in the order you choose.</p></div>
+          <span class="local-chip" title="Processing happens in this browser"><i></i></span>
+        </div>
+        <div class="workspace-body">
+          <div class="drop-zone" id="drop-zone" tabindex="0" role="button" aria-label="Select or drop files">
+            <input id="file-input" type="file" hidden>
+            <div class="upload-mark">↑</div><strong id="drop-title">Drop PDF files here</strong>
+            <span class="drop-subtitle">or <button type="button" id="browse-button" class="browse-button">browse files</button> from your device</span>
+            <small id="file-note">PDF · Up to 50 MB each</small>
+          </div>
+          <div class="file-list" id="file-list"></div>
+          <section class="passport-editor" id="passport-editor" aria-label="Passport photo adjustments" hidden>
+            <div class="passport-preview-wrap">
+              <img id="passport-preview" alt="Passport photo preview">
+            </div>
+            <div class="passport-editor-heading"><strong>Photo adjustments</strong><span>Changes update your print photo</span></div>
+            <div class="passport-adjustments" id="passport-adjustments"></div>
+          </section>
+          <div class="options-panel" id="options-panel"></div>
+          <div class="progress-wrap" id="progress-wrap" hidden><div class="progress-meta"><span id="progress-message">Working…</span><span id="progress-percent">0%</span></div><div class="progress-track"><span id="progress-bar"></span></div></div>
+          <div class="result-message" id="result-message" role="status" hidden></div>
+          <div class="workspace-actions"><button type="button" class="clear-button" id="clear-button">Clear files</button><button type="button" class="primary-button" id="process-button"><span id="process-label">Merge PDF</span><span>→</span></button></div>
+          <p class="workspace-note"><span>⌑</span> Your files are processed locally and never sent to AVR Tech Labs.</p>
+        </div>
+      </section>
+    </div>
+
+    <footer class="page-footer"><span>© <span id="year"></span> AVR Tech Labs</span><span>Tools for a smoother workday <b>✳</b></span><a href="#tool-library">Back to toolkit ↑</a></footer>
+  </main>
+
+  <script>
+    window.avrLibrariesReady = (async () => {
+      const loadLibrary = async (sources, isLoaded) => {
+        if (isLoaded()) return true;
+        for (const source of sources) {
+          const loaded = await new Promise((resolve) => {
+            const script = document.createElement("script");
+            let settled = false;
+            const finish = (result) => {
+              if (settled) return;
+              settled = true;
+              clearTimeout(timeout);
+              resolve(result);
+            };
+            const timeout = setTimeout(() => {
+              script.remove();
+              finish(false);
+            }, 12000);
+            script.src = source;
+            script.onload = () => finish(isLoaded());
+            script.onerror = () => { script.remove(); finish(false); };
+            document.head.appendChild(script);
+          });
+          if (loaded) return source;
+        }
+        return false;
+      };
+      const [pdfLib, pdfJsUrl, zip] = await Promise.all([
+        loadLibrary([
+          "https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js",
+          "https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"
+        ], () => Boolean(window.PDFLib)),
+        loadLibrary([
+          "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js",
+          "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"
+        ], () => Boolean(window.pdfjsLib)),
+        loadLibrary([
+          "https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js",
+          "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
+        ], () => Boolean(window.JSZip))
+      ]);
+      window.PDFJS_WORKER_SRC = typeof pdfJsUrl === "string" && pdfJsUrl.includes("jsdelivr")
+        ? "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js"
+        : "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+      return { pdfLib: Boolean(pdfLib), pdfJs: Boolean(pdfJsUrl), zip: Boolean(zip) };
+    })();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
